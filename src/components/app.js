@@ -6,13 +6,19 @@ class App extends Component {
     super(props);
     this.state = {};
   }
+
+  onSearchSubmit(term){
+    console.log(term);
+  }
+
+
   render() {
     const containerStyle = {
       marginTop: "10px",
     };
     return (
       <div className="ui container" style={containerStyle}>
-        <SearchBar />
+        <SearchBar onSubmit={this.onSearchSubmit} />
       </div>
     );
   }
