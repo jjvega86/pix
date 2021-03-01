@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import axios from "axios";
 import SearchBar from "./SearchBar";
 
 class App extends Component {
@@ -7,10 +8,9 @@ class App extends Component {
     this.state = {};
   }
 
-  onSearchSubmit(term){
+  onSearchSubmit(term) {
     console.log(term);
   }
-
 
   render() {
     const containerStyle = {
@@ -25,4 +25,3 @@ class App extends Component {
 }
 
 export default App;
-
