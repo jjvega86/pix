@@ -23,8 +23,7 @@ class App extends Component {
     return (
       <div className="ui container" style={containerStyle}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        <ImageList />
-        Found: {this.state.images.length} images
+        <ImageList images={this.state.images}/>
       </div>
     );
   }
