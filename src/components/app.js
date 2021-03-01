@@ -5,17 +5,17 @@ import SearchBar from "./SearchBar";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { images: [] };
   }
 
-  onSearchSubmit(term) {
-    axios.get("https://api.unsplash.com/search/photos", {
+  onSearchSubmit = async (term) => {
+    const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: term },
       headers: {
         Authorization: "Client-ID U6y-Dx3sRMszOS2xBlMrpTmWaQ-CB5BFm2ER0imiLKg",
       },
     });
-    console.log(term);
+    this.setState({ images: response.data.results });
   }
 
   render() {
@@ -25,6 +25,7 @@ class App extends Component {
     return (
       <div className="ui container" style={containerStyle}>
         <SearchBar onSubmit={this.onSearchSubmit} />
+        Found: {this.state.images.length} images
       </div>
     );
   }
